@@ -7,22 +7,30 @@
  
 var list;
 var output = document.getElementById("outputList");
+var i = 0;
+
 
    function addEntry()
    {
+		i ++; //This is used to count both the LIs and button ids
 		input = document.getElementById("entryBox").value;
-		//alert(input); 
 		var li=document.createElement('li');
+		li.id = 'item'+i;
 	    output.appendChild(li);
-	    li.innerHTML=li.innerHTML + input + "<button class='listButton' onclick='removeMe();'>Remove</button>";
+		var button = "<button class='listButton' id='button" + i + "' onclick='removeMe();'>Remove</button>";
+	    li.innerHTML=li.innerHTML + input + button;
    }
 
 	function removeMe()
 	{
-		var parent = document.getElementById("outputList");
-		var target = li.parent;
-		var remove = parent.removeChild(target);
+	
+		document.getElementById("outputList");
+		var target = this.parent;
+		target.removeChild(button);
+
+		//var remove = (this).parent.remove();
 	}
+	//var body = document.getElementsByTagName("body")[0];
 
 	
 	
